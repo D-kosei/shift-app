@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>シフト管理｜日表示</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header class="topbar">
+    <h1>シフト管理｜日</h1>
+    <div class="nav">
+      <a href="index.html">週表示</a>
+      <a href="month.html">月表示</a>
+    </div>
+    <button id="prev">‹</button>
+    <div id="label" class="badge"></div>
+    <button id="next">›</button>
+  </header>
+
+  <main class="wrap">
+    <section class="panel" style="overflow:auto;">
+      <div id="grid" class="grid week" style="grid-template-columns:220px repeat(24,1fr)"></div>
+    </section>
+  </main>
+
+  <!-- 追加／編集は週と同じダイアログを簡略化 -->
+  <dialog id="dlg">
+    <form method="dialog" id="shiftForm" class="dialog-form">
+      <h3 id="dlgTitle">シフトを追加</h3>
+      <div style="display:flex; gap:8px">
+        <div style="flex:1"><label>開始</label><select id="fFrom"></select></div>
+        <div style="flex:1"><label>終了</label><select id="fTo"></select></div>
+      </div>
+      <div class="field"><label>メモ</label><input type="text" id="fNote" placeholder="任意"/></div>
+      <input type="hidden" id="fDate"/><input type="hidden" id="fEmpId"/><input type="hidden" id="fShiftId"/>
+      <div class="menu">
+        <button value="cancel">キャンセル</button>
+        <button id="saveBtn" value="default">保存</button>
+        <button id="delBtn" class="danger" value="delete">削除</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script type="module" src="js/day.js"></script>
+</body>
+</html>
