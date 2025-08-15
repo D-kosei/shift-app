@@ -1,0 +1,42 @@
+:root{
+  --bg:#0f1115; --panel:#151925; --text:#e8ecf1; --muted:#a9b3c1; --accent:#6aa8ff; --border:#2a2f3d;
+  --chipA:#7bd389; --chipB:#f7b267; --chipC:#a78bfa; --danger:#ff6b6b;
+}
+*{box-sizing:border-box}
+body{margin:0; background:#0f1115; color:var(--text); font-family:system-ui, -apple-system, "Segoe UI", Roboto, "Hiragino Sans", "Noto Sans JP", sans-serif}
+.topbar{position:sticky; top:0; z-index:10; display:flex; align-items:center; gap:12px; padding:10px 14px; background:#0f1115cc; backdrop-filter:blur(6px); border-bottom:1px solid var(--border)}
+.topbar h1{font-size:18px; margin:0}
+.week-nav{display:flex; align-items:center; gap:8px; margin-left:auto}
+.badge{display:inline-block; padding:3px 8px; border-radius:8px; border:1px solid var(--border); color:var(--muted); font-size:12px}
+.layout{display:grid; grid-template-columns:280px 1fr; gap:12px; padding:12px}
+.panel{background:var(--panel); border:1px solid var(--border); border-radius:16px; padding:12px}
+.sidebar h2{margin:.2rem 0 .6rem}
+.row.add{display:flex; gap:8px}
+.row.add input{flex:1; padding:8px; border-radius:10px; border:1px solid var(--border); background:#0c1018; color:var(--text)}
+.row.add button{padding:8px 12px; border-radius:10px; border:1px solid var(--border); background:#141a22; color:var(--text); cursor:pointer}
+.emp-list{list-style:none; margin:10px 0 0; padding:0; display:flex; flex-direction:column; gap:6px}
+.emp-list li{display:flex; justify-content:space-between; align-items:center; gap:8px; padding:8px 10px; background:#0c1018; border:1px solid var(--border); border-radius:12px}
+.emp-del{border:1px solid var(--border); background:#141a22; color:var(--muted); border-radius:8px; padding:2px 6px; cursor:pointer}
+
+.board-wrap{overflow:auto}
+.grid{min-width:860px; display:grid; grid-template-columns:220px repeat(7, 1fr)}
+.cell{position:relative; min-height:56px; border-right:1px solid var(--border); border-bottom:1px solid var(--border); padding:6px}
+.cell.sticky{position:sticky; left:0; z-index:2; background:#0e1420}
+.header{position:sticky; top:0; z-index:3; background:#111729}
+.header > div{padding:8px; text-align:center; color:var(--muted); border-right:1px solid var(--border)}
+.shift{position:absolute; left:6px; right:6px; top:6px; min-height:40px; border-radius:10px; border:1px solid var(--border); padding:6px 8px; font-size:12px; overflow:hidden}
+.shift[data-color="0"]{background:rgba(123,211,137,.18)}
+.shift[data-color="1"]{background:rgba(247,178,103,.20)}
+.shift[data-color="2"]{background:rgba(167,139,250,.20)}
+
+/* dialog */
+dialog{border:none; border-radius:16px; padding:0; background:#0c1018; color:var(--text); width:min(420px, 92vw)}
+.dialog-form{padding:16px}
+.field{display:flex; flex-direction:column; gap:6px; margin:10px 0}
+.field2{display:flex; gap:8px}
+.dialog-form input, .dialog-form select{padding:8px; border-radius:10px; border:1px solid var(--border); background:#0b0e14; color:var(--text)}
+menu{display:flex; gap:8px; justify-content:flex-end; margin-top:12px}
+menu button{border:1px solid var(--border); background:#131821; color:var(--text); padding:8px 12px; border-radius:10px; cursor:pointer}
+menu .danger{border-color:#5a1f25; background:#261116; color:#ffb3b3}
+
+@media (max-width: 920px){ .layout{grid-template-columns:1fr} .grid{grid-template-columns:180px repeat(7, 1fr)} }

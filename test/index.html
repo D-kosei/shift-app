@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>シフト管理（週・1時間単位）</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>シフト管理</h1>
+    <div class="week-nav">
+      <button id="prevWeek" aria-label="前の週">‹</button>
+      <div id="weekLabel" class="badge"></div>
+      <button id="nextWeek" aria-label="次の週">›</button>
+    </div>
+    <div class="mode">
+      <span class="badge" id="storageModeBadge"></span>
+    </div>
+  </header>
+
+  <main class="layout">
+    <aside class="sidebar panel">
+      <h2>従業員</h2>
+      <form id="addEmployeeForm" class="row add">
+        <input id="empName" type="text" placeholder="名前を入力" required />
+        <button>追加</button>
+      </form>
+      <ul id="employeeList" class="emp-list"></ul>
+    </aside>
+
+    <section class="board-wrap panel">
+      <div class="grid" id="grid"></div>
+    </section>
+  </main>
+
+  <!-- ダイアログ -->
+  <dialog id="shiftDialog">
+    <form method="dialog" id="shiftForm" class="dialog-form">
+      <h3 id="dialogTitle">シフトを追加</h3>
+      <div class="field">
+        <label>日付</label>
+        <input type="date" id="shiftDate" required />
+      </div>
+      <div class="field2">
+        <div>
+          <label>開始</label>
+          <select id="shiftFrom"></select>
+        </div>
+        <div>
+          <label>終了</label>
+          <select id="shiftTo"></select>
+        </div>
+      </div>
+      <div class="field">
+        <label>メモ</label>
+        <input type="text" id="shiftNote" placeholder="任意" />
+      </div>
+      <menu>
+        <button value="cancel">キャンセル</button>
+        <button id="saveShiftBtn" value="default">保存</button>
+        <button id="deleteShiftBtn" class="danger" value="delete">削除</button>
+      </menu>
+      <input type="hidden" id="shiftEmpId" />
+      <input type="hidden" id="shiftId" />
+    </form>
+  </dialog>
+
+  <template id="rowTemplate">
+    <div class="row">
+      <div class="cell sticky"><span class="emp-name"></span><button class="emp-del">×</button></div>
+      <!-- 日付セルはJSで生成 -->
+    </div>
+  </template>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
