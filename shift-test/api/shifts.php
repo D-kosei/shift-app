@@ -1,6 +1,6 @@
 <?php
 // CORS（必要に応じて許可ドメインに変更）
-$allowed_origin = 'https://'; // 例）'https://yourname.github.io'
+$allowed_origin = 'https://d-kosei.github.io'; // 例）'https://yourname.github.io'
 header('Access-Control-Allow-Origin: ' . $allowed_origin);
 header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type');
